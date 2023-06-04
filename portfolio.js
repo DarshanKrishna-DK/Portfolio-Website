@@ -56,7 +56,7 @@ ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right'});
 /*----------------Typed JS----------------*/
 
 const typed = new Typed('.multiple-text', {
-    strings: ['Engineering Student','Frontend Developer', 'Gamer'],
+    strings: ['Engineering Student','Web Developer', 'Gamer', 'REVAite'],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
@@ -65,11 +65,34 @@ const typed = new Typed('.multiple-text', {
 
 /*----------------Validation---------------- */
 
-function phoneValidate(phNum)
-{
-    let ph = value.phNum;
-    let phPattern = /^[6-9]\d{9}$/;
-    if(!(ph.length > 0) && !(phPattern.test(ph)))
-        alert("Phone Number Invalid");  
-    
+// Email validation function
+function validateEmail(email) {
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  }
+  
+// Mobile number validation function
+function validatePhoneNumber(mobileNumber) {
+    var mobilePattern = /^[6-9]\d{9}$/; 
+    return mobilePattern.test(mobileNumber);
 }
+
+function validateForm() {
+    var emailInput = document.getElementById("email");
+    var mobileNumberInput = document.getElementById("mobileNumber");
+  
+    if (!validateEmail(emailInput.value)) {
+      alert("Invalid email address!");
+      return false;
+    }
+  
+    if (!validatePhoneNumber(mobileNumberInput.value)) {
+      alert("Invalid mobile number!");
+      return false;
+    }
+  
+    // If both email and mobile number inputs are valid, allow form submission
+    return true;
+}
+  
+  
